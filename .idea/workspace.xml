@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed92822e-5582-4641-88e4-d298a557fbb4" name="Default Changelist" comment="" />
+    <list default="true" id="d8b2a5f8-11fd-4fc0-81e8-5c9b48aa17f6" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="nubank-authorizer" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -15,14 +18,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="1RZlIOOjp1U3ll9l1I1xebuCym5" />
+  <component name="ProjectId" id="1RfXwkQbaDjrasCFouGlGzbtxkO" />
   <component name="PropertiesComponent">
-    <property name="cursive.last.file.extension.D\:/JAVA -STUDIES/clojure/Nubank/challenge-authorizer/nubank-authorizer/src" value="clj" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\JAVA -STUDIES\clojure\Nubank\challenge-authorizer\nubank-authorizer\src\nubank_authorizer\main" />
-    </key>
+    <property name="cursive.last.file.extension.D\:/JAVA -STUDIES/clojure/ZZZZZ/nubank-challenge-authorizer/nubank-authorizer/src" value="clj" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -61,11 +59,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ed92822e-5582-4641-88e4-d298a557fbb4" name="Default Changelist" comment="" />
-      <created>1569882418255</created>
+      <changelist id="d8b2a5f8-11fd-4fc0-81e8-5c9b48aa17f6" name="Default Changelist" comment="" />
+      <created>1570059364824</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1569882418255</updated>
+      <updated>1570059364824</updated>
     </task>
     <servers />
   </component>

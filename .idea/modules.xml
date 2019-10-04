@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/challenge-authorizer.iml" filepath="$PROJECT_DIR$/.idea/challenge-authorizer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nubank-authorizer.iml" filepath="$PROJECT_DIR$/nubank-authorizer.iml" />
     </modules>
   </component>
 </project>
