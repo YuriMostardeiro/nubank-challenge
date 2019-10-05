@@ -4,34 +4,29 @@
 
 (def accountSchema
   (atom {:account {:activateCard "false"
-                   :availableLimit "0"}
+                   :availableLimit nil}
          :violations []}))
 
 
-(defn createAccount [activateCard availableLimit]
-  (swap! accountSchema assoc-in [:account :activateCard] activateCard)    ;(get account :active-card)
-  (swap! accountSchema assoc-in [:account :availableLimit] availableLimit) ;(get account :available-limit)
-  )
+(defn createAccount [account]
+  (swap! accountSchema assoc-in [:account :activateCard] (get-in (parse-string account true) [:account :active-card]))
+  (swap! accountSchema assoc-in [:account :availableLimit] (get-in (parse-string account true) [:account :available-limit])))
 
 (defn accountViolation [violation]
-  (println "violation")
-  ;(swap! accountSchema update-in [:account :availableLimit] + violation)
-  ;(swap! @accountSchema update-in [:violations] violation)
+  (swap! accountSchema assoc-in [:violations] violation))
 
-  ;(map (fn [x] (swap! accountSchema(update-in x [:violations] #(if (= "name2" %) % "not 2"))) accountSchema))
-  )
-
+(defn availableLimitCalculate [amount]
+  (let [calculatedLimit (- (get-in @accountSchema [:account :availableLimit]) amount)]
+    (if (> calculatedLimit 0)
+      (swap! accountSchema assoc-in [:account :availableLimit] calculatedLimit)
+      (accountViolation "insufficient-limit")
+      )))
 
 (defn verifyAccount [account]
-  ;(println account)
-  ;(println(cheshire.core/parse-string (:body account)))
-  ;(println(cheshire.core/generate-string account))
-  ;(println (get-in account ["account" ":active-card"]))
-
-  (if (boolean (resolve 'accountSchema))
-    (accountViolation "account-already-initialized")
-    (createAccount (get-in (parse-string account true) [:account :active-card]) (get-in (parse-string account true) [:account :available-limit])))
-
+  (let [limit (get-in @accountSchema [:account :availableLimit])]
+  (if (nil? limit)
+    (createAccount  account)
+    (accountViolation "account-already-initialized")))
   (println (generate-string @accountSchema)))
 
 
