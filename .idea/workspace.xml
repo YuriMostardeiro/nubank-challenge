@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d8b2a5f8-11fd-4fc0-81e8-5c9b48aa17f6" name="Default Changelist" comment="" />
+    <list default="true" id="d8b2a5f8-11fd-4fc0-81e8-5c9b48aa17f6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nubank-authorizer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/nubank-authorizer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nubank_authorizer/domain/transaction.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/nubank_authorizer/domain/transaction.clj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xx.txt" beforeDir="false" afterPath="$PROJECT_DIR$/xx.txt" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +24,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1RfXwkQbaDjrasCFouGlGzbtxkO" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="cursive.last.file.extension.D\:/JAVA -STUDIES/clojure/Nubank/challenge-authorizer/nubank-challenge/src" value="clj" />
     <property name="cursive.last.file.extension.D\:/JAVA -STUDIES/clojure/ZZZZZ/nubank-challenge-authorizer/nubank-authorizer/src" value="clj" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
@@ -72,5 +83,16 @@
       <updated>1570059364824</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
