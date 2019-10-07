@@ -64,7 +64,7 @@ This project can be deployed using JAR or Docker.
 1. Build an uberjar: `lein uberjar`
 2. Run it:
 
-        $ java -jar target/nubank-authorizer-0.1.0-standalone.jar [FILE]    
+        $ java -jar target/uberjar/nubank-authorizer-0.1.0-SNAPSHOT-standalone.jar < [FILE]    
 
 ##Running with docker
 

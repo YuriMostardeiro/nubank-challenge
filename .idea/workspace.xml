@@ -3,16 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d8b2a5f8-11fd-4fc0-81e8-5c9b48aa17f6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/logger1.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/logger1.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nubank_authorizer/core.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/nubank_authorizer/core.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nubank_authorizer/domain/account.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/nubank_authorizer/domain/account.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nubank_authorizer/domain/transaction.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/nubank_authorizer/domain/transaction.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nubank_authorizer/services.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/nubank_authorizer/services.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nubank_authorizer/core_test.clj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nubank_authorizer/domain/account_test.clj" beforeDir="false" afterPath="$PROJECT_DIR$/test/nubank_authorizer/domain/account_test.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nubank_authorizer/domain/transaction_test.clj" beforeDir="false" afterPath="$PROJECT_DIR$/test/nubank_authorizer/domain/transaction_test.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xx.txt" beforeDir="false" afterPath="$PROJECT_DIR$/basicTestFile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/intro.md" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
