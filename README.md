@@ -16,6 +16,17 @@ FIXME: explanation
 
 FIXME: listing of options this app accepts.
 
+##Running with docker
+
+Use lein to create an jar with all dependencies
+
+    lein uberjar
+Generate your docker image
+
+    docker build -t nubank-authorize .
+Run your image passing an input file
+
+    docker run -i nubank-authorize < your_input_file.txt
 ## Examples
 
 ...

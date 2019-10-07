@@ -9,7 +9,12 @@
                  [org.clojure/tools.logging "0.5.0"]
                  [cheshire "5.9.0"]
                  [clj-time "0.15.2"]
-                 [midje "1.9.1"]
+                 [midje "1.9.3"]
+                 [org.slf4j/slf4j-log4j12 "1.7.1"]
+                 [log4j/log4j "1.2.17" :exclusions [javax.mail/mail
+                                                    javax.jms/jms
+                                                    com.sun.jmdk/jmxtools
+                                                    com.sun.jmx/jmxri]]
                  ]
   :main ^:skip-aot nubank-authorizer.core
   :target-path "target/%s"

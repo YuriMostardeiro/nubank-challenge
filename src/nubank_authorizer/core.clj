@@ -1,6 +1,6 @@
 (ns nubank-authorizer.core
   (:use [clojure.string :only (join)]
-        [clojure.tools.logging :as x])
+        [clojure.tools.logging :refer :all])
   (:require
     [clojure.tools.cli :refer [parse-opts]]
     [nubank-authorizer.services :as services])
@@ -29,7 +29,6 @@
   "Entrypoint, parses arguments, exits with any errors, provides args to main."
   [& args]
   (let [{:keys [options arguments errors summary]} (parse-opts args cli-options)]
-    (x/info "something bad happened")
     (cond
       (:help options) (exit 0 summary)
       errors (exit 1 (join "\n" errors))

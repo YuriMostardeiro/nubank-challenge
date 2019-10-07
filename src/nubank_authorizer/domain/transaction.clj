@@ -1,4 +1,5 @@
 (ns nubank-authorizer.domain.transaction
+  (:use [clojure.tools.logging :refer :all])
   (:require [nubank-authorizer.domain.account :as acc]
             [nubank-authorizer.util.transformUtil :as tru]
             [cheshire.core :refer :all]
@@ -8,20 +9,18 @@
 (def custom-formatter (f/formatter "yyyy-MM-dd HH:mm:ss.SSS "))
 
 (def transactionSchema
-  (atom {:transaction {:merchant "false"
-                       :amount nil
-                       :time nil
+  (atom {:transaction {:merchant         "false"
+                       :amount           nil
+                       :time             nil
                        :transactionCount 1}}))
 
-(defn isAccountInitialized []
-  (let [limit (get-in @acc/accountSchema [:account :availableLimit])]
-    (if (nil? limit)
-      (acc/accountViolation "account-not-initialized"))))
+(defn isAccountInitialized [account]
+  (boolean (get-in account [:account :availableLimit])))
 
 (defn updateTransactionSchema [transaction incrementCount]
-  (swap! transactionSchema assoc-in [:transaction :merchant] (get-in (parse-string transaction true) [:transaction :merchant]))
-  (swap! transactionSchema assoc-in [:transaction :amount] (get-in (parse-string transaction true) [:transaction :amount]))
-  (swap! transactionSchema assoc-in [:transaction :time] (get-in (parse-string transaction true) [:transaction :time]))
+  (swap! transactionSchema assoc-in [:transaction :merchant] (get-in transaction [:transaction :merchant]))
+  (swap! transactionSchema assoc-in [:transaction :amount] (get-in transaction [:transaction :amount]))
+  (swap! transactionSchema assoc-in [:transaction :time] (get-in transaction [:transaction :time]))
 
   (if-not (nil? incrementCount)
     (swap! transactionSchema update-in [:transaction :transactionCount] + incrementCount)
@@ -30,76 +29,78 @@
 (defn isAccountLimitSufficient [amount]
   (acc/availableLimitCalculate amount))
 
-(defn isAccountCardActive []
-  (let [active (get-in @acc/accountSchema [:account :activateCard])]
-    (if (not active)
-      (acc/accountViolation "card-not-active"))))
+(defn isAccountCardActive [account]
+  (get-in account [:account :activateCard]))
 
 (defn transactionViolation [transaction message]
-  (acc/accountViolation message)
+  (info "VIOLATION: " message transaction)
+  (acc/addAccountViolation message)
   (updateTransactionSchema transaction nil)
   )
 
-(defn isOnTransactionInterval [transaction]
-  (if (> (get-in  @transactionSchema [:transaction :transactionCount]) 3)
-    (transactionViolation transaction "high-frequency-small-interval")
-    (updateTransactionSchema transaction 1)))
-
-(defn isSingleTransaction [transaction]
-  (if (= (get-in  @transactionSchema [:transaction :merchant]) (get-in (parse-string transaction true) [:transaction :merchant]))
-    (if (= (get-in  @transactionSchema [:transaction :amount]) (get-in (parse-string transaction true) [:transaction :amount]))
-      (transactionViolation transaction "doubled-transaction")
-      ))
-  (isOnTransactionInterval transaction))
-
 (defn intervalVerify [transaction time]
-  ;(println (f/parse custom-formatter (tru/dateTimeFormatter (get-in (parse-string transaction true) [:transaction :time]))))
-  ;(println (f/parse custom-formatter  (tru/dateTimeFormatter time)))
+  (let [interval (t/in-millis (t/interval (f/parse custom-formatter (tru/dateTimeFormatter time)) (f/parse custom-formatter (tru/dateTimeFormatter (get-in transaction [:transaction :time])))))]
+    (<= interval 120000)))
 
-  (let [interval (t/in-millis (t/interval (f/parse custom-formatter  (tru/dateTimeFormatter time)) (f/parse custom-formatter (tru/dateTimeFormatter (get-in (parse-string transaction true) [:transaction :time])))))]
-    (if (< interval 120000)
-      (isSingleTransaction transaction)
-      (updateTransactionSchema transaction 1)
-      )))
+(defn isOnTransactionInterval [previewsTransaction currentTransaction]
+  (info "isOnTransactionInterval")
+  (if (> (get-in previewsTransaction [:transaction :transactionCount]) 3)
+    (not (intervalVerify currentTransaction (get-in previewsTransaction [:transaction :time])))
+    true))
+
+(defn isSingleTransaction [previewsTransaction currentTransaction]
+  "Returns false in case the same transaction is called in a given interval"
+  (if (= (get-in previewsTransaction [:transaction :merchant]) (get-in currentTransaction [:transaction :merchant]))
+    (if (= (get-in previewsTransaction [:transaction :amount]) (get-in currentTransaction [:transaction :amount]))
+      (not (intervalVerify currentTransaction (get-in previewsTransaction [:transaction :time])))
+      true)
+    true))
+
+;(defn intervalVerify [transaction time]
+;  (let [interval (t/in-millis (t/interval (f/parse custom-formatter  (tru/dateTimeFormatter time)) (f/parse custom-formatter (tru/dateTimeFormatter (get-in (parse-string transaction true) [:transaction :time])))))]
+;    (if (< interval 120000)
+;      (isSingleTransaction transaction)
+;      (updateTransactionSchema transaction 1))))
+
+
 
 (defn doTransaction [transaction]
-  (isAccountLimitSufficient (get-in (parse-string transaction true) [:transaction :amount])))
+  (isAccountLimitSufficient (get-in transaction [:transaction :amount])))
 
-(defn transactionRules [transaction]
-  (swap! acc/accountSchema assoc-in [:violations] "")
+(defn transactionRules [transaction account]
+  (swap! acc/accountSchema assoc-in [:violations] [])
 
-  (isAccountInitialized)
-  (isAccountCardActive)
+  (if-not (isAccountInitialized account)
+    (acc/addAccountViolation "account-not-initialized"))
 
-  ;(println (tru/dateTimeFormatter (get-in (parse-string transaction true) [:transaction :time])))
-  ;(println (get-in (parse-string transaction true) [:transaction :time]))
+  (if-not (isAccountCardActive account)
+    (acc/addAccountViolation "card-not-active"))
+
+  ;(let [time (get-in @transactionSchema [:transaction :time])]
+  ;  (if (nil? time)
+  ;    (updateTransactionSchema transaction nil)
+  ;    (if (intervalVerify transaction time)
+  ;      ())))
+
+  (let [currentTransaction (parse-string transaction true)]
+    (info @transactionSchema currentTransaction)
+    (if-not (isSingleTransaction @transactionSchema currentTransaction)
+      (transactionViolation @transactionSchema "doubled-transaction"))
+
+    (if-not (isOnTransactionInterval @transactionSchema currentTransaction)
+      (transactionViolation @transactionSchema "high-frequency-small-interval")))
 
 
-  ;(println (f/parse custom-formatter "2019-02-13T11:00:00.000Z"))
-  ;(generate-string @accountSchema)
+    ;(transactionViolation currentTransaction "doubled-transaction")
+    ;(isOnTransactionInterval currentTransaction)
+    (info @transactionSchema)
+    (updateTransactionSchema currentTransaction 1)
 
-  ;(println (f/parse "2019-05-05 04:03:27.000"))
-  ;(println (f/parse custom-formatter "2019-02-02 11:00:00.000"))
-  ;(println (t/in-millis (t/interval (f/parse custom-formatter  (tru/dateTimeFormatter (get-in (parse-string transaction true) [:transaction :time]))) (t/date-time 2019 11 11 11 03 27 456))))
-  ;(println (t/in-minutes (t/interval (t/date-time 1986 10 14 4 3 27 456) (t/date-time 1986 10 14 4 4 29 456))))
-
-  ;(f/parse (f/formatters :basic-date-time) \"2019-02-13T11:00:00.000Z\")
-  ;(println )
+    (let [violations (get-in @acc/accountSchema [:violations])]
+      (if (empty? violations)
+        (doTransaction currentTransaction)))
 
 
-  ;(if (> (get-in @transaction [:transaction :transactionCount]) 0))
-
-  ;(println (str "transactionmemory- "@transactionSchema))
-  ;(println (str "memory-" (get-in @transactionSchema [:transaction :time])))
-  ;(println (str "transaction-" (get-in (parse-string transaction true) [:transaction :time])))
-
-  (let [time (get-in @transactionSchema [:transaction :time])]
-    (if (nil? time)
-      (updateTransactionSchema transaction nil)
-      (intervalVerify transaction time)))
-
-  (let [violations (get-in @acc/accountSchema [:violations])]
-    (if (clojure.string/blank? violations)
-        (doTransaction transaction)))
+    )
 
   (println (generate-string @acc/accountSchema)))
