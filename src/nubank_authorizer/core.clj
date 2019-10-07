@@ -20,7 +20,8 @@
   ([in-file]
    (with-open [read in-file]
      (doseq [line (line-seq read)]
-       (services/checkTransaction line)))))
+       (services/checkTransaction line)))
+   (info "Program finished")))
 
 (def cli-options
   [["-h" "--help"]])
@@ -28,6 +29,7 @@
 (defn -main
   "Entrypoint, parses arguments, exits with any errors, provides args to main."
   [& args]
+  (info "Program Started")
   (let [{:keys [options arguments errors summary]} (parse-opts args cli-options)]
     (cond
       (:help options) (exit 0 summary)

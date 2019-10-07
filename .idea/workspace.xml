@@ -2,44 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8b2a5f8-11fd-4fc0-81e8-5c9b48aa17f6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__com_rpl_specter_1_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__fipp_0_6_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__io_aviso_pretty_0_1_35.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__log4j_1_2_17.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__marick_suchwow_6_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__midje_1_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_clojure_java_classpath_0_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_clojure_tools_reader_0_10_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_slf4j_slf4j_api_1_7_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_slf4j_slf4j_log4j12_1_7_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__com_rpl_specter_1_0_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__commons_codec_1_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__commons_codec_1_11.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__fipp_0_6_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__io_aviso_pretty_0_1_34.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__marick_clojure_commons_3_0_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__marick_suchwow_6_0_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__midje_1_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_clojure_core_rrb_vector_0_0_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_clojure_core_rrb_vector_0_0_12.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_clojure_test_check_0_9_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_clojure_test_check_0_10_0_alpha3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_clojure_tools_namespace_0_2_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_clojure_tools_namespace_0_3_0_alpha4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__potemkin_0_4_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__potemkin_0_4_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__swiss_arrows_1_0_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/intro.md" beforeDir="false" afterPath="$PROJECT_DIR$/doc/intro.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nubank-authorizer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/nubank-authorizer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.clj" beforeDir="false" afterPath="$PROJECT_DIR$/project.clj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/logger1.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/logger1.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nubank_authorizer/core.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/nubank_authorizer/core.clj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nubank_authorizer/domain/account.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/nubank_authorizer/domain/account.clj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nubank_authorizer/domain/transaction.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/nubank_authorizer/domain/transaction.clj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nubank_authorizer/services.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/nubank_authorizer/services.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nubank_authorizer/util/transformUtil.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/nubank_authorizer/util/transformUtil.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nubank_authorizer/core_test.clj" beforeDir="false" afterPath="$PROJECT_DIR$/test/nubank_authorizer/core_test.clj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nubank_authorizer/core_test.clj" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test/nubank_authorizer/domain/account_test.clj" beforeDir="false" afterPath="$PROJECT_DIR$/test/nubank_authorizer/domain/account_test.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xx.txt" beforeDir="false" afterPath="$PROJECT_DIR$/xx.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nubank_authorizer/domain/transaction_test.clj" beforeDir="false" afterPath="$PROJECT_DIR$/test/nubank_authorizer/domain/transaction_test.clj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xx.txt" beforeDir="false" afterPath="$PROJECT_DIR$/basicTestFile.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

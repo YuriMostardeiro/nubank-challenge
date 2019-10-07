@@ -5,5 +5,5 @@
 
 
 (facts "about `create-account`"
-       (fact "it creates a new account with activeCardtrue and limit of 100"
+       (fact "it creates a new account with activeCardTrue and limit of 100"
              (acc/createAccount "{\"account\": {\"active-card\": true, \"available-limit\": 100}}") => {:account {:activateCard true :availableLimit 100} :violations []}))

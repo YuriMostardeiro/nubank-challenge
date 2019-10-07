@@ -2,8 +2,9 @@
   (:use [clojure.tools.logging :refer :all])
   (:require [cheshire.core :refer :all]))
 
-
+; "Put the account information's on memory for use during all transactions"
 (def accountSchema
+
   (atom {:account {:activateCard "false"
                    :availableLimit nil}
          :violations []}))
@@ -20,12 +21,10 @@
   )
 
 (defn availableLimitCalculate [amount]
-  (info amount)
   (let [calculatedLimit (- (get-in @accountSchema [:account :availableLimit]) amount)]
     (if (> calculatedLimit 0)
       (swap! accountSchema assoc-in [:account :availableLimit] calculatedLimit)
-      (addAccountViolation "insufficient-limit")
-      )))
+      (addAccountViolation "insufficient-limit"))))
 
 (defn verifyAccount [account]
   (let [limit (get-in @accountSchema [:account :availableLimit])]

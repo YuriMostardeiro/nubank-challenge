@@ -1,0 +1,194 @@
+[2019-10-06 23:03:23,820][INFO][nubank-authorizer.core] Program Started
+[2019-10-06 23:03:23,828][INFO][nubank-authorizer.services] Begin read line
+[2019-10-06 23:03:23,828][INFO][nubank-authorizer.domain.account] Creating account {"account": {"active-card": true, "available-limit": 100}}
+[2019-10-06 23:03:23,841][INFO][nubank-authorizer.services] Begin read line
+[2019-10-06 23:03:23,841][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-06 23:03:23,853][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant false, :amount nil, :time nil, :transactionCount 1}}
+[2019-10-06 23:03:23,858][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Burger King, :amount 20, :time 2019-02-13T10:00:00.000Z}}
+[2019-10-06 23:03:23,859][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Burger King, :amount 20, :time 2019-02-13T10:00:00.000Z}}
+[2019-10-06 23:03:23,859][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-06 23:03:23,859][INFO][nubank-authorizer.services] Begin read line
+[2019-10-06 23:03:23,859][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-06 23:03:23,860][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Burger King, :amount 20, :time 2019-02-13T10:00:00.000Z, :transactionCount 2}}
+[2019-10-06 23:03:23,860][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:10.000Z}}
+[2019-10-06 23:03:23,860][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:10.000Z}}
+[2019-10-06 23:03:23,860][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-06 23:03:23,860][INFO][nubank-authorizer.services] Begin read line
+[2019-10-06 23:03:23,860][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-06 23:03:23,860][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:10.000Z, :transactionCount 3}}
+[2019-10-06 23:03:23,861][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:20.000Z}}
+[2019-10-06 23:03:23,864][WARN][nubank-authorizer.domain.account] Adding violation doubled-transaction
+[2019-10-06 23:03:23,864][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:20.000Z}}
+[2019-10-06 23:03:23,864][INFO][nubank-authorizer.services] Begin read line
+[2019-10-06 23:03:23,864][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-06 23:03:23,865][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:20.000Z, :transactionCount 2}}
+[2019-10-06 23:03:23,865][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant dddbibs, :amount 10, :time 2019-02-13T11:00:30.000Z}}
+[2019-10-06 23:03:23,865][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant dddbibs, :amount 10, :time 2019-02-13T11:00:30.000Z}}
+[2019-10-06 23:03:23,865][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-06 23:03:23,865][INFO][nubank-authorizer.services] Begin read line
+[2019-10-06 23:03:23,865][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-06 23:03:23,865][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant dddbibs, :amount 10, :time 2019-02-13T11:00:30.000Z, :transactionCount 3}}
+[2019-10-06 23:03:23,865][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Hcvbs, :amount 10, :time 2019-02-13T11:00:40.000Z}}
+[2019-10-06 23:03:23,866][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Hcvbs, :amount 10, :time 2019-02-13T11:00:40.000Z}}
+[2019-10-06 23:03:23,866][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-06 23:03:23,866][INFO][nubank-authorizer.services] Begin read line
+[2019-10-06 23:03:23,866][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-06 23:03:23,866][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Hcvbs, :amount 10, :time 2019-02-13T11:00:40.000Z, :transactionCount 4}}
+[2019-10-06 23:03:23,866][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Hcvbs, :amount 200, :time 2019-02-13T12:00:41.000Z}}
+[2019-10-06 23:03:23,866][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Hcvbs, :amount 200, :time 2019-02-13T12:00:41.000Z}}
+[2019-10-06 23:03:23,867][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-06 23:03:23,867][WARN][nubank-authorizer.domain.account] Adding violation insufficient-limit
+[2019-10-06 23:03:23,867][INFO][nubank-authorizer.services] Begin read line
+[2019-10-06 23:03:23,867][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-06 23:03:23,867][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Hcvbs, :amount 200, :time 2019-02-13T12:00:41.000Z, :transactionCount 5}}
+[2019-10-06 23:03:23,867][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Hcvbs, :amount 20, :time 2019-02-13T12:00:42.000Z}}
+[2019-10-06 23:03:23,867][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Hcvbs, :amount 20, :time 2019-02-13T12:00:42.000Z}}
+[2019-10-06 23:03:23,868][WARN][nubank-authorizer.domain.account] Adding violation high-frequency-small-interval
+[2019-10-06 23:03:23,869][INFO][nubank-authorizer.core] End Program
+[2019-10-06 23:08:53,690][INFO][nubank-authorizer.core] Program Started
+[2019-10-06 23:08:53,698][INFO][nubank-authorizer.services] reading line...
+[2019-10-06 23:08:53,698][INFO][nubank-authorizer.domain.account] Creating account {"account": {"active-card": true, "available-limit": 100}}
+[2019-10-06 23:08:53,711][INFO][nubank-authorizer.services] reading line...
+[2019-10-06 23:08:53,712][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-06 23:08:53,723][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant false, :amount nil, :time nil, :transactionCount 1}}
+[2019-10-06 23:08:53,728][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Burger King, :amount 20, :time 2019-02-13T10:00:00.000Z}}
+[2019-10-06 23:08:53,729][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Burger King, :amount 20, :time 2019-02-13T10:00:00.000Z}}
+[2019-10-06 23:08:53,729][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-06 23:08:53,729][INFO][nubank-authorizer.services] reading line...
+[2019-10-06 23:08:53,729][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-06 23:08:53,730][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Burger King, :amount 20, :time 2019-02-13T10:00:00.000Z, :transactionCount 2}}
+[2019-10-06 23:08:53,730][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:10.000Z}}
+[2019-10-06 23:08:53,730][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:10.000Z}}
+[2019-10-06 23:08:53,730][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-06 23:08:53,730][INFO][nubank-authorizer.services] reading line...
+[2019-10-06 23:08:53,730][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-06 23:08:53,730][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:10.000Z, :transactionCount 3}}
+[2019-10-06 23:08:53,731][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:20.000Z}}
+[2019-10-06 23:08:53,734][WARN][nubank-authorizer.domain.account] Adding violation doubled-transaction
+[2019-10-06 23:08:53,734][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:20.000Z}}
+[2019-10-06 23:08:53,734][INFO][nubank-authorizer.services] reading line...
+[2019-10-06 23:08:53,734][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-06 23:08:53,735][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:20.000Z, :transactionCount 2}}
+[2019-10-06 23:08:53,735][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant dddbibs, :amount 10, :time 2019-02-13T11:00:30.000Z}}
+[2019-10-06 23:08:53,735][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant dddbibs, :amount 10, :time 2019-02-13T11:00:30.000Z}}
+[2019-10-06 23:08:53,735][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-06 23:08:53,735][INFO][nubank-authorizer.services] reading line...
+[2019-10-06 23:08:53,735][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-06 23:08:53,735][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant dddbibs, :amount 10, :time 2019-02-13T11:00:30.000Z, :transactionCount 3}}
+[2019-10-06 23:08:53,735][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Hcvbs, :amount 10, :time 2019-02-13T11:00:40.000Z}}
+[2019-10-06 23:08:53,736][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Hcvbs, :amount 10, :time 2019-02-13T11:00:40.000Z}}
+[2019-10-06 23:08:53,736][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-06 23:08:53,736][INFO][nubank-authorizer.services] reading line...
+[2019-10-06 23:08:53,736][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-06 23:08:53,736][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Hcvbs, :amount 10, :time 2019-02-13T11:00:40.000Z, :transactionCount 4}}
+[2019-10-06 23:08:53,736][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Hcvbs, :amount 200, :time 2019-02-13T12:00:41.000Z}}
+[2019-10-06 23:08:53,736][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Hcvbs, :amount 200, :time 2019-02-13T12:00:41.000Z}}
+[2019-10-06 23:08:53,737][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-06 23:08:53,737][WARN][nubank-authorizer.domain.account] Adding violation insufficient-limit
+[2019-10-06 23:08:53,737][INFO][nubank-authorizer.services] reading line...
+[2019-10-06 23:08:53,737][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-06 23:08:53,737][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Hcvbs, :amount 200, :time 2019-02-13T12:00:41.000Z, :transactionCount 5}}
+[2019-10-06 23:08:53,737][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Hcvbs, :amount 20, :time 2019-02-13T12:00:42.000Z}}
+[2019-10-06 23:08:53,737][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Hcvbs, :amount 20, :time 2019-02-13T12:00:42.000Z}}
+[2019-10-06 23:08:53,738][WARN][nubank-authorizer.domain.account] Adding violation high-frequency-small-interval
+[2019-10-06 23:08:53,738][INFO][nubank-authorizer.core] Program finished
+[2019-10-07 00:02:46,058][INFO][nubank-authorizer.core] Program Started
+[2019-10-07 00:02:46,068][INFO][nubank-authorizer.services] reading line...
+[2019-10-07 00:02:46,069][INFO][nubank-authorizer.domain.account] Creating account {"account": {"active-card": true, "available-limit": 100}}
+[2019-10-07 00:02:46,083][INFO][nubank-authorizer.services] reading line...
+[2019-10-07 00:02:46,083][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-07 00:02:46,095][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant false, :amount nil, :time nil, :transactionCount 1}}
+[2019-10-07 00:02:46,096][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Burger King, :amount 20, :time 2019-02-13T10:00:00.000Z}}
+[2019-10-07 00:02:46,097][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Burger King, :amount 20, :time 2019-02-13T10:00:00.000Z}}
+[2019-10-07 00:02:46,097][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-07 00:02:46,097][INFO][nubank-authorizer.services] reading line...
+[2019-10-07 00:02:46,097][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-07 00:02:46,098][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Burger King, :amount 20, :time 2019-02-13T10:00:00.000Z, :transactionCount 2}}
+[2019-10-07 00:02:46,098][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:10.000Z}}
+[2019-10-07 00:02:46,098][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:10.000Z}}
+[2019-10-07 00:02:46,098][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-07 00:02:46,098][INFO][nubank-authorizer.services] reading line...
+[2019-10-07 00:02:46,098][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-07 00:02:46,098][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:10.000Z, :transactionCount 3}}
+[2019-10-07 00:02:46,098][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:20.000Z}}
+[2019-10-07 00:02:46,102][WARN][nubank-authorizer.domain.account] Adding violation doubled-transaction
+[2019-10-07 00:02:46,102][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:20.000Z}}
+[2019-10-07 00:02:46,102][INFO][nubank-authorizer.services] reading line...
+[2019-10-07 00:02:46,102][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-07 00:02:46,102][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:20.000Z, :transactionCount 2}}
+[2019-10-07 00:02:46,102][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant dddbibs, :amount 10, :time 2019-02-13T11:00:30.000Z}}
+[2019-10-07 00:02:46,103][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant dddbibs, :amount 10, :time 2019-02-13T11:00:30.000Z}}
+[2019-10-07 00:02:46,103][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-07 00:02:46,103][INFO][nubank-authorizer.services] reading line...
+[2019-10-07 00:02:46,103][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-07 00:02:46,103][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant dddbibs, :amount 10, :time 2019-02-13T11:00:30.000Z, :transactionCount 3}}
+[2019-10-07 00:02:46,103][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Hcvbs, :amount 10, :time 2019-02-13T11:00:40.000Z}}
+[2019-10-07 00:02:46,103][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Hcvbs, :amount 10, :time 2019-02-13T11:00:40.000Z}}
+[2019-10-07 00:02:46,103][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-07 00:02:46,104][INFO][nubank-authorizer.services] reading line...
+[2019-10-07 00:02:46,104][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-07 00:02:46,104][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Hcvbs, :amount 10, :time 2019-02-13T11:00:40.000Z, :transactionCount 4}}
+[2019-10-07 00:02:46,104][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Hcvbs, :amount 200, :time 2019-02-13T12:00:41.000Z}}
+[2019-10-07 00:02:46,104][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Hcvbs, :amount 200, :time 2019-02-13T12:00:41.000Z}}
+[2019-10-07 00:02:46,104][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-07 00:02:46,105][WARN][nubank-authorizer.domain.account] Adding violation insufficient-limit
+[2019-10-07 00:02:46,105][INFO][nubank-authorizer.services] reading line...
+[2019-10-07 00:02:46,105][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-07 00:02:46,105][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Hcvbs, :amount 200, :time 2019-02-13T12:00:41.000Z, :transactionCount 5}}
+[2019-10-07 00:02:46,105][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Hcvbs, :amount 20, :time 2019-02-13T12:00:42.000Z}}
+[2019-10-07 00:02:46,105][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Hcvbs, :amount 20, :time 2019-02-13T12:00:42.000Z}}
+[2019-10-07 00:02:46,105][WARN][nubank-authorizer.domain.account] Adding violation high-frequency-small-interval
+[2019-10-07 00:02:46,106][INFO][nubank-authorizer.core] Program finished
+[2019-10-07 00:06:11,811][INFO][nubank-authorizer.domain.account] Creating account {"account": {"active-card": true, "available-limit": 100}}
+[2019-10-07 00:06:12,138][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant testBurger, :amount 20, :time 2019-10-06T15:00:00.000Z, :transactionCount 2}}
+[2019-10-07 00:06:12,139][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant testBurger, :amount 20, :time 2019-10-06T15:01:00.000Z, :transactionCount 3}}
+[2019-10-07 00:06:12,140][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant testPizza, :amount 20, :time 2019-10-06T15:01:30.000Z, :transactionCount 4}}
+[2019-10-07 00:06:12,142][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant testPizza, :amount 50, :time 2019-10-06T15:01:31.000Z, :transactionCount 5}}
+[2019-10-07 00:06:12,143][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant testBarbecue, :amount 50, :time 2019-10-06T15:11:32.000Z, :transactionCount 6}}
+[2019-10-07 00:15:55,271][INFO][nubank-authorizer.core] Program Started
+[2019-10-07 00:15:55,279][INFO][nubank-authorizer.services] reading line...
+[2019-10-07 00:15:55,279][INFO][nubank-authorizer.domain.account] Creating account {"account": {"active-card": true, "available-limit": 100}}
+[2019-10-07 00:15:55,293][INFO][nubank-authorizer.services] reading line...
+[2019-10-07 00:15:55,293][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-07 00:15:55,305][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant false, :amount nil, :time nil, :transactionCount 1}}
+[2019-10-07 00:15:55,309][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Burger King, :amount 20, :time 2019-02-13T10:00:00.000Z}}
+[2019-10-07 00:15:55,309][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Burger King, :amount 20, :time 2019-02-13T10:00:00.000Z}}
+[2019-10-07 00:15:55,311][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-07 00:15:55,311][INFO][nubank-authorizer.services] reading line...
+[2019-10-07 00:15:55,311][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-07 00:15:55,311][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Burger King, :amount 20, :time 2019-02-13T10:00:00.000Z, :transactionCount 2}}
+[2019-10-07 00:15:55,311][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:10.000Z}}
+[2019-10-07 00:15:55,311][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:10.000Z}}
+[2019-10-07 00:15:55,311][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-07 00:15:55,311][INFO][nubank-authorizer.services] reading line...
+[2019-10-07 00:15:55,311][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-07 00:15:55,311][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:10.000Z, :transactionCount 3}}
+[2019-10-07 00:15:55,311][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:20.000Z}}
+[2019-10-07 00:15:55,315][WARN][nubank-authorizer.domain.account] Adding violation doubled-transaction
+[2019-10-07 00:15:55,315][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:20.000Z}}
+[2019-10-07 00:15:55,315][INFO][nubank-authorizer.services] reading line...
+[2019-10-07 00:15:55,315][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-07 00:15:55,315][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Habbib's, :amount 10, :time 2019-02-13T11:00:20.000Z, :transactionCount 2}}
+[2019-10-07 00:15:55,315][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant PizzaPlanet, :amount 10, :time 2019-02-13T11:00:30.000Z}}
+[2019-10-07 00:15:55,316][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant PizzaPlanet, :amount 10, :time 2019-02-13T11:00:30.000Z}}
+[2019-10-07 00:15:55,316][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-07 00:15:55,316][INFO][nubank-authorizer.services] reading line...
+[2019-10-07 00:15:55,316][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-07 00:15:55,316][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant PizzaPlanet, :amount 10, :time 2019-02-13T11:00:30.000Z, :transactionCount 3}}
+[2019-10-07 00:15:55,316][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Bazzar Plaza, :amount 10, :time 2019-02-13T11:00:40.000Z}}
+[2019-10-07 00:15:55,316][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Bazzar Plaza, :amount 10, :time 2019-02-13T11:00:40.000Z}}
+[2019-10-07 00:15:55,316][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-07 00:15:55,317][INFO][nubank-authorizer.services] reading line...
+[2019-10-07 00:15:55,317][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-07 00:15:55,317][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Bazzar Plaza, :amount 10, :time 2019-02-13T11:00:40.000Z, :transactionCount 4}}
+[2019-10-07 00:15:55,317][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Saraiva Megastore, :amount 200, :time 2019-02-13T12:00:41.000Z}}
+[2019-10-07 00:15:55,317][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Saraiva Megastore, :amount 200, :time 2019-02-13T12:00:41.000Z}}
+[2019-10-07 00:15:55,317][INFO][nubank-authorizer.domain.transaction] Do transaction
+[2019-10-07 00:15:55,317][WARN][nubank-authorizer.domain.account] Adding violation insufficient-limit
+[2019-10-07 00:15:55,318][INFO][nubank-authorizer.services] reading line...
+[2019-10-07 00:15:55,318][INFO][nubank-authorizer.domain.transaction] Transaction rules
+[2019-10-07 00:15:55,318][INFO][nubank-authorizer.domain.transaction] preview transaction {:transaction {:merchant Saraiva Megastore, :amount 200, :time 2019-02-13T12:00:41.000Z, :transactionCount 5}}
+[2019-10-07 00:15:55,318][INFO][nubank-authorizer.domain.transaction] current transaction {:transaction {:merchant Saraiva Megastore, :amount 20, :time 2019-02-13T12:00:42.000Z}}
+[2019-10-07 00:15:55,318][INFO][nubank-authorizer.domain.transaction] isOnTransactionInterval {:transaction {:merchant Saraiva Megastore, :amount 20, :time 2019-02-13T12:00:42.000Z}}
+[2019-10-07 00:15:55,319][WARN][nubank-authorizer.domain.account] Adding violation high-frequency-small-interval
+[2019-10-07 00:15:55,319][INFO][nubank-authorizer.core] Program finished

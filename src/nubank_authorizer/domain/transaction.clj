@@ -18,6 +18,7 @@
   (boolean (get-in account [:account :availableLimit])))
 
 (defn updateTransactionSchema [transaction incrementCount]
+  "updates the information  of transaction for the next one comparison"
   (swap! transactionSchema assoc-in [:transaction :merchant] (get-in transaction [:transaction :merchant]))
   (swap! transactionSchema assoc-in [:transaction :amount] (get-in transaction [:transaction :amount]))
   (swap! transactionSchema assoc-in [:transaction :time] (get-in transaction [:transaction :time]))
@@ -27,23 +28,26 @@
     (swap! transactionSchema assoc-in [:transaction :transactionCount] 1)))
 
 (defn isAccountLimitSufficient [amount]
+  "Return false if insufficient amount for the transaction "
   (acc/availableLimitCalculate amount))
 
 (defn isAccountCardActive [account]
+  "Return false if account card is inactive"
   (get-in account [:account :activateCard]))
 
 (defn transactionViolation [transaction message]
-  (info "VIOLATION: " message transaction)
   (acc/addAccountViolation message)
   (updateTransactionSchema transaction nil)
   )
 
 (defn intervalVerify [transaction time]
+  "verify if is an interval of 2 minutes"
   (let [interval (t/in-millis (t/interval (f/parse custom-formatter (tru/dateTimeFormatter time)) (f/parse custom-formatter (tru/dateTimeFormatter (get-in transaction [:transaction :time])))))]
     (<= interval 120000)))
 
 (defn isOnTransactionInterval [previewsTransaction currentTransaction]
-  (info "isOnTransactionInterval")
+  "Returns false in case 4 or more transactions in a given interval"
+  (info "isOnTransactionInterval" currentTransaction)
   (if (> (get-in previewsTransaction [:transaction :transactionCount]) 3)
     (not (intervalVerify currentTransaction (get-in previewsTransaction [:transaction :time])))
     true))
@@ -56,18 +60,13 @@
       true)
     true))
 
-;(defn intervalVerify [transaction time]
-;  (let [interval (t/in-millis (t/interval (f/parse custom-formatter  (tru/dateTimeFormatter time)) (f/parse custom-formatter (tru/dateTimeFormatter (get-in (parse-string transaction true) [:transaction :time])))))]
-;    (if (< interval 120000)
-;      (isSingleTransaction transaction)
-;      (updateTransactionSchema transaction 1))))
-
-
-
 (defn doTransaction [transaction]
+  (info "Do transaction")
   (isAccountLimitSufficient (get-in transaction [:transaction :amount])))
 
 (defn transactionRules [transaction account]
+  "Execute all business rules for transactions"
+  (info "Transaction rules")
   (swap! acc/accountSchema assoc-in [:violations] [])
 
   (if-not (isAccountInitialized account)
@@ -76,31 +75,21 @@
   (if-not (isAccountCardActive account)
     (acc/addAccountViolation "card-not-active"))
 
-  ;(let [time (get-in @transactionSchema [:transaction :time])]
-  ;  (if (nil? time)
-  ;    (updateTransactionSchema transaction nil)
-  ;    (if (intervalVerify transaction time)
-  ;      ())))
-
   (let [currentTransaction (parse-string transaction true)]
-    (info @transactionSchema currentTransaction)
+    (info "preview transaction" @transactionSchema)
+    (info "current transaction" currentTransaction)
     (if-not (isSingleTransaction @transactionSchema currentTransaction)
       (transactionViolation @transactionSchema "doubled-transaction"))
 
     (if-not (isOnTransactionInterval @transactionSchema currentTransaction)
-      (transactionViolation @transactionSchema "high-frequency-small-interval")))
+      (transactionViolation @transactionSchema "high-frequency-small-interval"))
 
-
-    ;(transactionViolation currentTransaction "doubled-transaction")
-    ;(isOnTransactionInterval currentTransaction)
-    (info @transactionSchema)
+    ;update the counter for high frequency tests
     (updateTransactionSchema currentTransaction 1)
 
+    ; if no violations, check the account amount for transaction
     (let [violations (get-in @acc/accountSchema [:violations])]
       (if (empty? violations)
-        (doTransaction currentTransaction)))
-
-
-    )
+        (doTransaction currentTransaction))))
 
   (println (generate-string @acc/accountSchema)))

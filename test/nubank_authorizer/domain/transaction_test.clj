@@ -7,30 +7,35 @@
 (def accountNotInitialized {:account {:activateCard false :availableLimit nil} :violations []})
 (def accountCardInactive {:account {:activateCard false :availableLimit 100} :violations []})
 
+(def noTransactionOccurred {:transaction {:merchant         "false"
+                                          :amount           nil
+                                          :time             nil
+                                          :transactionCount 1}})
+
 (def transactionTestBurger {:transaction {:merchant "testBurger"
                    :amount            20
                    :time              "2019-10-06T15:00:00.000Z"
-                   :transactionCount  1}})
+                   :transactionCount  2}})
 
 (def transactionTestBurgerPlus1Minutes {:transaction {:merchant "testBurger"
                              :amount              20
                              :time                "2019-10-06T15:01:00.000Z"
-                             :transactionCount    1} })
+                             :transactionCount    3}})
 
 (def transactionTestPizza {:transaction {:merchant "testPizza"
                      :amount 20
-                     :time "2019-10-06T15:00:00.000Z"
-                     :transactionCount 1} })
+                     :time "2019-10-06T15:01:30.000Z"
+                     :transactionCount 4}})
 
 (def transactionTestPizzaWithAmountOf50 {:transaction {:merchant "testPizza"
                            :amount 50
-                           :time "2019-10-06T15:00:00.000Z"
-                           :transactionCount 1} })
+                           :time "2019-10-06T15:01:31.000Z"
+                           :transactionCount 5}})
 
-(def transactionThree {:transaction {:merchant "testBarbecue"
+(def transactionTestBarbecue {:transaction {:merchant "testBarbecue"
                      :amount 50
-                     :time "2019-10-06T16:10:00.000Z"
-                     :transactionCount 1} })
+                     :time "2019-10-06T15:11:32.000Z"
+                     :transactionCount 6}})
 
 (facts "about `Account initialized`"
   (fact "when it is"
@@ -57,5 +62,15 @@
              (transaction/isSingleTransaction transactionTestBurger transactionTestPizza) => true)
 
        (fact "when it is not doubled because it is from the same merchant but with a different amount"
-             (transaction/isSingleTransaction transactionTestPizza transactionTestPizzaWithAmountOf50) => true)
-       )
+             (transaction/isSingleTransaction transactionTestPizza transactionTestPizzaWithAmountOf50) => true))
+(facts "about `Transaction Interval`"
+       (fact "when it is the first transaction in two minutes"
+             (transaction/isOnTransactionInterval noTransactionOccurred transactionTestBurger) => true)
+       (fact "when it is the second transaction in two minutes"
+             (transaction/isOnTransactionInterval transactionTestBurger transactionTestBurgerPlus1Minutes) => true)
+       (fact "when it is the third transaction in two minutes"
+             (transaction/isOnTransactionInterval transactionTestBurgerPlus1Minutes transactionTestPizza) => true)
+       (fact "when it is the fourth transaction in two minutes"
+             (transaction/isOnTransactionInterval transactionTestPizza transactionTestPizzaWithAmountOf50) => false)
+       (fact "when it is the fifth transaction but after the two minutes"
+             (transaction/isOnTransactionInterval transactionTestPizzaWithAmountOf50 transactionTestBarbecue) => true))
